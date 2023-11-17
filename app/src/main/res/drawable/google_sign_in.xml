@@ -1,0 +1,6 @@
+<scale
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/googleiconsmall"
+    android:scaleWidth="50%"
+    android:scaleHeight="50%">
+</scale>

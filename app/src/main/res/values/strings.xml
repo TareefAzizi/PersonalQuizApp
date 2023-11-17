@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">PersonalQuizApp</string>
+    <string name="SignInToYourAccount">Sign in to your account\n</string>
+    <string name="SignInWithGoogle">Sign in with Google\n</string>
+    <string name="email">Email Address</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="Continue">Continue</string>
+    <string name="name">Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="student">Student</string>
+    <string name="register">Register</string>
+    <string name="teacher">Teacher</string>
+    <string name="dont_have_an_account">Not a User?</string>
+    <string name="create_account">Create an account</string>
 </resources>
