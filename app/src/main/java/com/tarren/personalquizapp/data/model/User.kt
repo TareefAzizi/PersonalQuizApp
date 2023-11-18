@@ -4,7 +4,7 @@ data class User(
     val id: String? = null,
     val name: String,
     val email: String,
-    val role: String // Add the "role" property
+    val role: String
 ) {
     // Function to convert User object to a HashMap
     fun toHashMap(): HashMap<String, String?> {

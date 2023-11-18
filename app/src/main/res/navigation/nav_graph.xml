@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+    <action android:id="@+id/toHome"
+        app:popUpTo="@id/loginFragment"
+        app:popUpToInclusive="true"
+        app:destination="@id/tabContainerFragment" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.tarren.personalquizapp.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/registerFragment" />
 
+    </fragment>
+    <navigation android:id="@+id/navigation"
+        app:startDestination="@id/tabContainerFragment">
+        <fragment
+            android:id="@+id/tabContainerFragment"
+            android:name="com.tarren.personalquizapp.ui.tabContainer.TabContainerFragment"
+            android:label="fragment_tab_container"
+            tools:layout="@layout/fragment_tab_container" />
+    </navigation>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.tarren.personalquizapp.ui.register.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
 </navigation>

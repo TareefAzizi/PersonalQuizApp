@@ -27,4 +27,6 @@
     <color name="cornflower_blue">#6495ED</color> <!-- For informational messages or links -->
     <color name="platinum">#E5E4E2</color> <!-- For off-white backgrounds that are easy on the eyes -->
     <color name="onyx">#353839</color> <!-- For text on light backgrounds to reduce harshness -->
+        <color name="error">#B83F3F</color>
 </resources>
+

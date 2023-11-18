@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "919552218217",
+    "project_id": "personalquizapp",
+    "storage_bucket": "personalquizapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:919552218217:android:9305631eaa0f4e69afbef8",
+        "android_client_info": {
+          "package_name": "com.tarren.personalquizapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "919552218217-f1n6fo0m74hchpvera2gaoeet33jdlop.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tarren.personalquizapp",
+            "certificate_hash": "537942d22404a40d7e75abb99700ccc9efcc8d4b"
+          }
+        },
+        {
+          "client_id": "919552218217-ufl4vflcttifup5n3uta3ogcd7mefq8u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB12KOCrXycUUFnuEnWtY-J76LgWqL6ewo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "919552218217-ufl4vflcttifup5n3uta3ogcd7mefq8u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
