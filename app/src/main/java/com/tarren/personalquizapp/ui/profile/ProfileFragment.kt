@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.tarren.personalquizapp.R
 import com.tarren.personalquizapp.databinding.FragmentHomeBinding
@@ -60,7 +62,10 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
                 )
             )
         }
+
+
     }
+
 
     override fun setupViewModelObserver() {
         super.setupViewModelObserver()
@@ -86,6 +91,8 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
                     .into(binding.ivProfile)
             }
         }
+
+
     }
 
 }

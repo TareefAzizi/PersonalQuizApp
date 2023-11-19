@@ -28,14 +28,18 @@
             app:destination="@id/teacherDashboardFragment" />
     </fragment>
 
-    <!-- Nested navigation graph, if there's any specific use -->
+    <!-- Nested navigation graph for tab container -->
     <navigation android:id="@+id/navigation"
         app:startDestination="@id/tabContainerFragment">
         <fragment
             android:id="@+id/tabContainerFragment"
             android:name="com.tarren.personalquizapp.ui.tabContainer.TabContainerFragment"
             android:label="fragment_tab_container"
-            tools:layout="@layout/fragment_tab_container" />
+            tools:layout="@layout/fragment_tab_container">
+            <action
+                android:id="@+id/action_tabContainer_to_login"
+                app:destination="@id/loginFragment" />
+        </fragment>
     </navigation>
 
     <!-- Register Fragment with actions to Student Dashboard and Teacher Dashboard -->
@@ -65,6 +69,8 @@
         android:name="com.tarren.personalquizapp.ui.Teacher.teacherDashboard.TeacherDashboardFragment"
         android:label="fragment_teacher_dashboard"
         tools:layout="@layout/fragment_teacher_dashboard" />
+
+    <!-- Other Fragments -->
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.tarren.personalquizapp.ui.home.HomeFragment"
@@ -74,5 +80,39 @@
         android:id="@+id/profileFragment"
         android:name="com.tarren.personalquizapp.ui.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profile_to_login"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/upcomingQuizFragment"
+        android:name="com.tarren.personalquizapp.ui.Student.UpcomingQuiz.UpcomingQuizFragment"
+        android:label="fragment_upcoming_quiz"
+        tools:layout="@layout/fragment_upcoming_quiz" />
+    <fragment
+        android:id="@+id/quizTimingFragment"
+        android:name="com.tarren.personalquizapp.ui.Teacher.QuizTiming.QuizTimingFragment"
+        android:label="fragment_quiz_timing"
+        tools:layout="@layout/fragment_quiz_timing" />
+    <fragment
+        android:id="@+id/quizParticipationFragment"
+        android:name="com.tarren.personalquizapp.ui.Student.QuizParticipation.QuizParticipationFragment"
+        android:label="fragment_quiz_participation"
+        tools:layout="@layout/fragment_quiz_participation" />
+    <fragment
+        android:id="@+id/quizManagementFragment"
+        android:name="com.tarren.personalquizapp.ui.Teacher.QuizManagement.QuizManagementFragment"
+        android:label="fragment_quiz_management"
+        tools:layout="@layout/fragment_quiz_management" />
+    <fragment
+        android:id="@+id/groupManagementFragment"
+        android:name="com.tarren.personalquizapp.ui.Teacher.GroupManagement.GroupManagementFragment"
+        android:label="fragment_group_management"
+        tools:layout="@layout/fragment_group_management" />
+    <fragment
+        android:id="@+id/csvImportFragment"
+        android:name="com.tarren.personalquizapp.ui.Teacher.CSVImport.CsvImportFragment"
+        android:label="fragment_csv_import"
+        tools:layout="@layout/fragment_csv_import" />
 </navigation>
