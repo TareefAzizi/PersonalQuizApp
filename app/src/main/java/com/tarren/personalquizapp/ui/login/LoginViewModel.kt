@@ -3,6 +3,7 @@ package com.tarren.personalquizapp.ui.login
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tarren.personalquizapp.core.service.AuthService
+import com.tarren.personalquizapp.data.model.User
 import com.tarren.personalquizapp.data.repo.UserRepo
 import com.tarren.personalquizapp.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,23 +17,19 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(
     private val authService: AuthService,
     private val userRepo: UserRepo,
-): BaseViewModel() {
-    private val _greet = MutableStateFlow("")
-    val greet: StateFlow<String> = _greet
+) : BaseViewModel() {
+    private val _user = MutableStateFlow<User?>(null)
+    val user: StateFlow<User?> = _user
 
-    init{
-        viewModelScope.launch(Dispatchers.IO) {
-
-        }
-    }
     fun login(email: String, pass: String) {
         viewModelScope.launch(Dispatchers.IO) {
             val res = safeApiCall { authService.login(email, pass) }
-
-            if(res == null) {
+            if (res == null) {
                 _error.emit("Email or password is wrong")
             } else {
-                _success.emit("Login successful")
+                // Assuming getUser() fetches the User object from the repository
+                val userObj = userRepo.getUser(res.uid)
+                _user.emit(userObj)
             }
         }
     }

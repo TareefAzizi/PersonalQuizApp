@@ -52,9 +52,15 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
         super.setupViewModelObserver()
 
         lifecycleScope.launch {
-            viewModel.success.collect {
-                val action = RegisterFragmentDirections.toHome()
-                navController.navigate(action)
+            viewModel.user.collect { user ->
+                if (user != null) {
+                    val action = when (user.role) {
+                        "Student" -> RegisterFragmentDirections.actionRegisterToStudentDashboard()
+                        "Teacher" -> RegisterFragmentDirections.actionRegisterToTeacherDashboard()
+                        else -> throw IllegalStateException("Unknown role")
+                    }
+                    navController.navigate(action)
+                }
             }
         }
     }

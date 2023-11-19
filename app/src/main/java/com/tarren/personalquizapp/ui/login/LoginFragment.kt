@@ -81,8 +81,15 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     override fun setupViewModelObserver() {
         super.setupViewModelObserver()
         lifecycleScope.launch {
-            viewModel.success.collect {
-                // Navigate to the home screen or dashboard
+            viewModel.user.collect { user ->
+                if (user != null) {
+                    val action = when (user.role) {
+                        "Student" -> LoginFragmentDirections.actionLoginToStudentDashboard()
+                        "Teacher" -> LoginFragmentDirections.actionLoginToTeacherDashboard()
+                        else -> null
+                    }
+                    action?.let { navController.navigate(it) }
+                }
             }
         }
     }

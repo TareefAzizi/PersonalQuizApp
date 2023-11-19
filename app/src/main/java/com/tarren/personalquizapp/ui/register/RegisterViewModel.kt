@@ -8,6 +8,8 @@ import com.tarren.personalquizapp.data.repo.UserRepo
 import com.tarren.personalquizapp.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -16,6 +18,9 @@ class RegisterViewModel @Inject constructor(
     private val authService: AuthService,
     private val userRepo: UserRepo
 ) : BaseViewModel() {
+
+    private val _user = MutableStateFlow<User?>(null)
+    val user: StateFlow<User?> = _user
 
     fun register(name: String, email: String, pass: String, confirmPass: String, role: String) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -27,11 +32,9 @@ class RegisterViewModel @Inject constructor(
                 if (res == null) {
                     _error.emit("Could not create user")
                 } else {
-                    userRepo.addUser(
-                        res.uid,
-                        User(name = name, email = res.email ?: "", role = role)
-                    )
-                    _success.emit("User created successfully")
+                    val newUser = User(name = name, email = res.email ?: "", role = role)
+                    userRepo.addUser(res.uid, newUser)
+                    _user.emit(newUser)
                 }
             }
         }

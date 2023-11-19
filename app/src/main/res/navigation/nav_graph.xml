@@ -4,10 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/loginFragment">
+
+    <!-- Action to navigate to the home screen -->
     <action android:id="@+id/toHome"
         app:popUpTo="@id/loginFragment"
         app:popUpToInclusive="true"
         app:destination="@id/tabContainerFragment" />
+
+    <!-- Login Fragment with actions to Register, Student Dashboard, and Teacher Dashboard -->
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.tarren.personalquizapp.ui.login.LoginFragment"
@@ -16,8 +20,15 @@
         <action
             android:id="@+id/action_login_to_register"
             app:destination="@id/registerFragment" />
-
+        <action
+            android:id="@+id/action_login_to_studentDashboard"
+            app:destination="@id/studentDashboardFragment" />
+        <action
+            android:id="@+id/action_login_to_teacherDashboard"
+            app:destination="@id/teacherDashboardFragment" />
     </fragment>
+
+    <!-- Nested navigation graph, if there's any specific use -->
     <navigation android:id="@+id/navigation"
         app:startDestination="@id/tabContainerFragment">
         <fragment
@@ -26,9 +37,42 @@
             android:label="fragment_tab_container"
             tools:layout="@layout/fragment_tab_container" />
     </navigation>
+
+    <!-- Register Fragment with actions to Student Dashboard and Teacher Dashboard -->
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.tarren.personalquizapp.ui.register.RegisterFragment"
         android:label="fragment_register"
-        tools:layout="@layout/fragment_register" />
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_register_to_studentDashboard"
+            app:destination="@id/studentDashboardFragment" />
+        <action
+            android:id="@+id/action_register_to_teacherDashboard"
+            app:destination="@id/teacherDashboardFragment" />
+    </fragment>
+
+    <!-- Student Dashboard Fragment -->
+    <fragment
+        android:id="@+id/studentDashboardFragment"
+        android:name="com.tarren.personalquizapp.ui.Student.studentDashboard.StudentDashboardFragment"
+        android:label="fragment_student_dashboard"
+        tools:layout="@layout/fragment_student_dashboard" />
+
+    <!-- Teacher Dashboard Fragment -->
+    <fragment
+        android:id="@+id/teacherDashboardFragment"
+        android:name="com.tarren.personalquizapp.ui.Teacher.teacherDashboard.TeacherDashboardFragment"
+        android:label="fragment_teacher_dashboard"
+        tools:layout="@layout/fragment_teacher_dashboard" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.tarren.personalquizapp.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.tarren.personalquizapp.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

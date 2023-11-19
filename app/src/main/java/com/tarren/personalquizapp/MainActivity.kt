@@ -20,8 +20,15 @@ class MainActivity : AppCompatActivity() {
 
         navController = findNavController(R.id.navHostFragment)
         val currentUser = authService.getCurrentUser()
-        if(currentUser != null) {
-            navController.navigate(R.id.tabContainerFragment)
+
+        if (currentUser != null) {
+            navController.addOnDestinationChangedListener { _, destination, _ ->
+                if (destination.id == R.id.loginFragment) {
+                    // Navigate to the start destination of the nested navigation graph
+                    navController.navigate(R.id.navigation)
+                }
+            }
         }
     }
 }
+
